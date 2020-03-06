@@ -7,15 +7,36 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 
-
     <title>Weather Dashboard</title>
 </head>
 <body>
     <span><h1>Weather Dashboard</h1></span>
 
-    <aside>
-        
-    </aside>
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col col-lg-3">
+            
+            <!-- Search bar -->
+            <label id="labelSearch" for="citySearch">Search for a city:</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="citySearch">
+                <div class="input-group-append">
+                  <button id="searchBtn" class="btn btn-outline-secondary" type="button">Search
+                  </button>
+                </div>
+            </div>
+            
+ 
+            <!-- List of Past searches -->
+            <ul id="searchHistory" class="list-group">
+                
+            </ul>
+
+          </div>
+          <div class="col col-lg-9">
+          </div>
+        </div>
+      </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
