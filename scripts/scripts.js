@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    // array of searches
+    // search history
     let searches = [];
 
     // on click listener
@@ -17,12 +17,21 @@ $(document).ready(function(){
         // grab the input from the textbox
         let city = $("#citySearch").val().trim();
 
+
+        // add city into the array
+        if (searches.includes(city)) {
+            $("#citySearch").val("");
+        }
+        else {
+            searches.push(city);
+            searchHistoryList(city);
+        }
+
         // empty the search bar
         $("#citySearch").val("");
 
         // ajax call
         let APIkey = "03d3a9bae74e45b5a5a50325200303";
-        let searches = [];
         let queryURL = "https://api.weatherapi.com/v1/forecast.json?key=" + APIkey + "&q=" + city + "&days=6";
 
         $.ajax({
@@ -40,14 +49,17 @@ $(document).ready(function(){
             $(".uvIndex").text("UV Index: " + uv);
             
         })
-
-        // add city into the array
-        if (searches.includes(city)) {
-            return false;
-        }
-        else {
-            searches.push(city);
-        }
     })
+
+    // populating the search history with items on array
+    function searchHistoryList(cityName){
+
+        let search = $("<li>");
+        search.text(cityName);
+        search.attr("class", "list-group-item");
+        $("#searchHistory").append(search);
+    }
+
+
 
 })
