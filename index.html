@@ -12,6 +12,15 @@
 <body>
     <span><h1>Weather Dashboard</h1></span>
 
+    <style>
+        body {
+          background-image: url('img/weather.jpg');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+        }
+    </style>
+
     <div class="container-fluid">
         <div class="row">
           <div class="col col-lg-3">
@@ -19,9 +28,9 @@
             <!-- Search bar -->
             <label id="labelSearch" for="citySearch">Search for a city:</label>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" id="citySearch">
+                <input type="text" class="form-control" placeholder="City name..." id="citySearch">
                 <div class="input-group-append">
-                  <button id="searchBtn" class="btn btn-outline-secondary" type="button">Search
+                  <button id="searchBtn" class="btn btn-dark" type="button">Search
                   </button>
                 </div>
             </div>
@@ -31,9 +40,18 @@
             <ul id="searchHistory" class="list-group">
                 
             </ul>
-
           </div>
+
           <div class="col col-lg-9">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h2 class="city"></h2>
+                    <div class="temp"></div>
+                    <div class="humidity"></div>
+                    <div class="wind"></div>
+                    <div class="uvIndex"></div>
+                </div>
+            </div>
           </div>
         </div>
       </div>
