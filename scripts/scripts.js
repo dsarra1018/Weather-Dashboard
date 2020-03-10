@@ -48,7 +48,18 @@ $(document).ready(function(){
             let uv = JSON.stringify(response.current.uv);
             $(".uvIndex").text("UV Index: " + uv);
             
-        })
+            // five day forecast
+            for(let i = 1; i < 6; i++){
+                let dateText = $("<p>");
+                let tempText = $("<p>");
+                let humidText = $("<p>");
+                dateText.text(moment(response.forecast.forecastday[i].date).format("L"));
+                tempText.text("Temp: " + response.forecast.forecastday[i].day.avgtemp_f + " °F");
+                humidText.text("Humidity: " + response.forecast.forecastday[i].day.avghumidity + " %");
+                $("#day"+i).append(dateText);
+                $("#day"+i).append(tempText);
+                $("#day"+i).append(humidText);
+            }            
     })
 
     // populating the search history with items on array
@@ -59,7 +70,5 @@ $(document).ready(function(){
         search.attr("class", "list-group-item");
         $("#searchHistory").append(search);
     }
-
-
-
+    })
 })
