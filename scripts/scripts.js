@@ -49,6 +49,7 @@ $(document).ready(function(){
             $(".uvIndex").text("UV Index: " + uv);
             
             // five day forecast
+            delForecast();
             for(let i = 1; i < 6; i++){
                 let dateText = $("<p>");
                 let tempText = $("<p>");
@@ -71,4 +72,13 @@ $(document).ready(function(){
         $("#searchHistory").append(search);
     }
     })
+
+    // deleting 5-day forecast
+    function delForecast(){
+        $("#day1").empty();
+        $("#day2").empty();
+        $("#day3").empty();
+        $("#day4").empty();
+        $("#day5").empty();
+    }
 })
